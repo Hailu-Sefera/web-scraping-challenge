@@ -20,6 +20,7 @@ def scrape():
     executable_path = {'executable_path': 'chromedriver.exe'}
     browser = Browser('chrome', **executable_path, headless=False)
 
+   
     url = 'https://mars.nasa.gov/news/'
     browser.visit(url)
     time.sleep(2)
@@ -86,7 +87,11 @@ def scrape():
         mars_hemisphere.append({"title": title, "img_url": image_url})
 
     mars_hemisphere
+   
+
 
     browser.quit()
 
-    return mars_hemisphere
+    return {"meh":mars_hemisphere}
+  
+    

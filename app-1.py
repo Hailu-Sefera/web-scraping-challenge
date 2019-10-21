@@ -1,24 +1,24 @@
 from flask import Flask, render_template, redirect
 from flask_pymongo import PyMongo
-# Import scrape_mars1
+# Import scrape_mars
 import scrape_mars3
 
-# Import our pymongo library, which lets me connect my Flask app to my Mongo database.
+# Import pymongo library, which lets me connect my Flask app to my Mongo database.
 import pymongo
 
 # Create an instance of my Flask app.
 app = Flask(__name__)
 
 # Create connection variable
-# conn = "mongodb://localhost:27017/scrape_mars1_app"
-app.config["MONGO_URI"] = "mongodb://localhost:27017/scrape_mars1_app"
+conn = "mongodb://localhost:27017/scrape_mars3"
+app.config["MONGO_URI"] = "mongodb://localhost:27017/scrape_mars3"
 mongo = PyMongo(app)
 
 
 # Pass connection to the pymongo instance.
-# client = pymongo.MongoClient(conn)
-# db = client.mars_data1
-# collection = db.mars_data1
+client = pymongo.MongoClient(conn)
+db = client.mars_data1
+collection = db.mars_data1
 
 # Set route
 @app.route("/")
@@ -30,7 +30,7 @@ def index1():
 # Scrape 
 @app.route("/scrape")
 def scrape():
-    # mars = client.db.mars
+    mars1 = client.db.mars
     mars1 = mongo.db.mars1 
     mars_data1 = scrape_mars3.scrape()
     print(mars_data1)
